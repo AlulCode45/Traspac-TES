@@ -5,7 +5,7 @@ namespace App\Helpers;
 class ResponseHelper
 {
     public static function success(
-        array $data = [],
+        mixed $data = [],
         string $message = 'Retrieved successfully.',
         int $status = 200,
     )
@@ -20,7 +20,7 @@ class ResponseHelper
     }
 
     public static function error(
-        array $error = [],
+        mixed $error = [],
         string $message = 'Something went wrong.',
         int $status = 500,
     ){
