@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
             UniKerjaSeeder::class,
             KaryawanSeeder::class
         ]);
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//        ]);
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@mail.com',
+        ]);
     }
 }
