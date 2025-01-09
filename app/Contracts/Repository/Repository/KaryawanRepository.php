@@ -27,7 +27,7 @@ class KaryawanRepository extends BaseRepository implements KaryawanInterface
             ->findOrFail($id);
     }
 
-    public function insert(array $data): mixed
+    public function store(array $data): mixed
     {
         return $this->model->query()
             ->insert($data);
