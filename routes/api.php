@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('auth')->group(function () {
     Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'handle']);
-    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'handle'])->middleware('auth:sanctum');
 });
 
 Route::apiResource('/karyawan', KaryawanController::class)->middleware('auth:sanctum');
