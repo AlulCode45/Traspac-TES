@@ -9,10 +9,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::prefix('auth')->group(function () {
-   Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'handle']);
-   Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'handle']);
+    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->middleware('auth:sanctum');
 });
 
-Route::prefix('karyawan')->name('karyawan.')->group(function () {
-    Route::apiResource('/', KaryawanController::class)->middleware('auth:sanctum');
-});
+Route::apiResource('/karyawan', KaryawanController::class)->middleware('auth:sanctum');
