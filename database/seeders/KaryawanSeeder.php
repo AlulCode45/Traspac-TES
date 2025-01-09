@@ -1,0 +1,105 @@
+<?php
+
+namespace Database\Seeders;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class KaryawanSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('karyawans')->insert([
+            [
+                'nip' => 12130569011,
+                'nama' => 'Ahmad Fauzi',
+                'tempat_lahir' => 'Jakarta',
+                'tanggal_lahir' => '1980-01-10',
+                'alamat' => 'Jl. Merdeka No.123',
+                'jenis_kelamin' => \App\Enums\JenisKelaminEnums::LAKI_LAKI->value,
+                'golongan' => \App\Enums\GolonganEnums::IA->value,
+                'eselon' => 3,
+                'jabatan_id' => 1,
+                'tempat_tugas' => 'Jakarta',
+                'agama' => \App\Enums\AgamaEnums::ISLAM->value,
+                'unit_kerja_id' => 1,
+                'no_hp' => '0812345678901',
+                'npwp' => '123456789012341',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nip' => 12130569012,
+                'nama' => 'Budi Santoso',
+                'tempat_lahir' => 'Surabaya',
+                'tanggal_lahir' => '1982-03-05',
+                'alamat' => 'Jl. Merpati No.45',
+                'jenis_kelamin' => \App\Enums\JenisKelaminEnums::LAKI_LAKI->value,
+                'golongan' => \App\Enums\GolonganEnums::IB->value,
+                'eselon' => 4,
+                'jabatan_id' => 2,
+                'tempat_tugas' => 'Surabaya',
+                'agama' => \App\Enums\AgamaEnums::KRISTEN->value,
+                'unit_kerja_id' => 2,
+                'no_hp' => '0812345678902',
+                'npwp' => '123456789012342',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nip' => 12130569013,
+                'nama' => 'Hasan Basri',
+                'tempat_lahir' => 'Malang',
+                'tanggal_lahir' => '1963-04-19',
+                'alamat' => 'Jl. Merdeka Blok AB',
+                'jenis_kelamin' => \App\Enums\JenisKelaminEnums::LAKI_LAKI->value,
+                'golongan' => \App\Enums\GolonganEnums::IIIC->value,
+                'eselon' => 3,
+                'jabatan_id' => 3,
+                'tempat_tugas' => 'Jakarta',
+                'agama' => \App\Enums\AgamaEnums::ISLAM->value,
+                'unit_kerja_id' => 1,
+                'no_hp' => '0812345678912',
+                'npwp' => '123456789012357',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nip' => 12130569014,
+                'nama' => 'Indah Sari',
+                'tempat_lahir' => 'Semarang',
+                'tanggal_lahir' => '1985-06-14',
+                'alamat' => 'Jl. Putri Blok BC',
+                'jenis_kelamin' => \App\Enums\JenisKelaminEnums::PEREMPUAN->value,
+                'golongan' => \App\Enums\GolonganEnums::IIIC->value,
+                'eselon' => 3,
+                'jabatan_id' => 2,
+                'tempat_tugas' => 'Jakarta',
+                'agama' => \App\Enums\AgamaEnums::ISLAM->value,
+                'unit_kerja_id' => 1,
+                'no_hp' => '0812345678913',
+                'npwp' => '123456789012358',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nip' => 12130569015,
+                'nama' => 'Joko Widodo',
+                'tempat_lahir' => 'Solo',
+                'tanggal_lahir' => '1983-04-08',
+                'alamat' => 'Perum Delivina Blok A.4/6',
+                'jenis_kelamin' => \App\Enums\JenisKelaminEnums::LAKI_LAKI->value,
+                'golongan' => \App\Enums\GolonganEnums::IIIC->value,
+                'eselon' => 3,
+                'jabatan_id' => 1,
+                'tempat_tugas' => 'Jakarta',
+                'agama' => \App\Enums\AgamaEnums::ISLAM->value,
+                'unit_kerja_id' => 1,
+                'no_hp' => '0812345678914',
+                'npwp' => '123456789012359',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+    }
+}
