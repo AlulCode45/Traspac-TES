@@ -2,7 +2,10 @@
 
 namespace App\Contracts\Repository\Repository;
 
-class KaryawanRepository
+
+use App\Contracts\Repository\Interfaces\KaryawanInterface;
+
+class KaryawanRepository extends BaseRepository implements KaryawanInterface
 {
 
 }
