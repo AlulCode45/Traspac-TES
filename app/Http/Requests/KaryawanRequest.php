@@ -26,16 +26,18 @@ class KaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nip' => 'required|numeric|unique:karyawans,nip',
-            'nama' => 'required|string|max:255',
+            'nip' => 'sometimes|required|numeric|unique:karyawans,nip',
+            'nama' => 'sometimes|required|string|max:255',
             'tempat_lahir' => 'nullable|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            'alamat' => 'required|string',
+            'tanggal_lahir' => 'sometimes|required|date',
+            'alamat' => 'sometimes|required|string',
             'jenis_kelamin' => [
+                'sometimes',
                 'required',
                 new Enum(JenisKelaminEnums::class)
             ],
             'golongan' => [
+                'sometimes',
                 'required',
                 new Enum(GolonganEnums::class)
             ],
@@ -43,6 +45,7 @@ class KaryawanRequest extends FormRequest
             'jabatan_id' => 'nullable|exists:jabatans,id',
             'tempat_tugas' => 'nullable|string|max:255',
             'agama' => [
+                'sometimes',
                 'required',
                 new Enum(AgamaEnums::class)
             ],
