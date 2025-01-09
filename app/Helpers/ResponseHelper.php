@@ -5,9 +5,9 @@ namespace App\Helpers;
 class ResponseHelper
 {
     public static function success(
+        array $data = [],
         string $message = 'Retrieved successfully.',
         int $status = 200,
-        array $data = []
     )
     {
         return response()->json([
@@ -20,9 +20,9 @@ class ResponseHelper
     }
 
     public static function error(
+        array $error = [],
         string $message = 'Something went wrong.',
         int $status = 500,
-        array $error = []
     ){
         return response()->json([
             'meta' => [
