@@ -16,7 +16,7 @@ class ResponseHelper
                 'status' => $status,
             ],
             'data' => $data
-        ]);
+        ],$status);
     }
 
     public static function error(
@@ -30,6 +30,6 @@ class ResponseHelper
                 'status' => $status,
             ],
             'errors' => $error
-        ]);
+        ],$status);
     }
 }
