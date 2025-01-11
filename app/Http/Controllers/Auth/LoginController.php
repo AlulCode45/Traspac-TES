@@ -21,6 +21,8 @@ class LoginController extends Controller
                     data: $user->toArray(),
                     message: 'Login successfully'
                 );
+            }else{
+                return ResponseHelper::error(message: 'Username / password wrong',status: 401);
             }
         } catch (\Exception $exception) {
             return ResponseHelper::error(
