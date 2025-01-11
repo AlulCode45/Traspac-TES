@@ -32,8 +32,8 @@ class KaryawanController extends Controller
     public function store(KaryawanRequest $request)
     {
         try{
-            $this->karyawan->store($request->validated());
-            return ResponseHelper::success($request->validated(),'Store data successfully', 201);
+            $karyawan = $this->karyawan->store($request->validated());
+            return ResponseHelper::success($this->karyawan->show($karyawan->id),'Store data successfully', 201);
         } catch (\Exception $exception){
             return ResponseHelper::error(message: $exception->getMessage());
         }

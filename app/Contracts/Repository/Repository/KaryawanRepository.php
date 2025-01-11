@@ -30,7 +30,7 @@ class KaryawanRepository extends BaseRepository implements KaryawanInterface
     public function store(array $data): mixed
     {
         return $this->model->query()
-            ->insert($data);
+            ->create($data);
     }
 
     public function update(mixed $id, array $data): mixed
