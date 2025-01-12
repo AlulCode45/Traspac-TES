@@ -15,7 +15,6 @@ class JabatanRepository extends BaseRepository implements JabatanInterface
     public function get(): mixed
     {
         return $this->model->query()
-            ->with('karyawan')
             ->get();
     }
 
