@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts\Repository\Interfaces\Eloquent;
+namespace App\Contracts\Interfaces\Eloquent;
 
 interface ShowInterface
 {

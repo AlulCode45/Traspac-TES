@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Contracts\Repository\Repository;
+namespace App\Contracts\Repository;
 
+use App\Contracts\Interfaces\JabatanInterface;
+use App\Models\UnitKerja;
 
-use App\Contracts\Repository\Interfaces\KaryawanInterface;
-use App\Models\Karyawan;
-
-class KaryawanRepository extends BaseRepository implements KaryawanInterface
+class JabatanRepository extends BaseRepository implements JabatanInterface
 {
-    public function __construct(Karyawan $model)
+    public function __construct(UnitKerja $model)
     {
         $this->model = $model;
     }
@@ -16,14 +15,14 @@ class KaryawanRepository extends BaseRepository implements KaryawanInterface
     public function get(): mixed
     {
         return $this->model->query()
-            ->with(['jabatan', 'unit_kerja'])
+            ->with('karyawan')
             ->get();
     }
 
     public function show(mixed $id): mixed
     {
         return $this->model->query()
-            ->with(['jabatan', 'unit_kerja'])
+            ->with('karyawan')
             ->findOrFail($id);
     }
 
@@ -41,7 +40,6 @@ class KaryawanRepository extends BaseRepository implements KaryawanInterface
 
     public function delete(mixed $id): bool
     {
-        return $this->show($id)
-            ->delete();
+        return $this->show($id)->delete($id);
     }
 }

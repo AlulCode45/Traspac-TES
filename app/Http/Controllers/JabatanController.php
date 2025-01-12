@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Interfaces\UnitKerjaInterface;
+use App\Contracts\Interfaces\JabatanInterface;
 use App\Helpers\ResponseHelper;
-use App\Http\Requests\UnitKerjaRequest;
+use App\Http\Requests\JabatanRequest;
 
-class UnitKerjaController extends Controller
+class JabatanController extends Controller
 {
-    private UnitKerjaInterface $unit_kerja;
+    private JabatanInterface $jabatan;
 
     public function __construct(
-        UnitKerjaInterface $unit_kerja
+        JabatanInterface $jabatan
     )
     {
-        $this->unit_kerja = $unit_kerja;
+        $this->jabatan = $jabatan;
     }
 
     /**
@@ -23,17 +23,17 @@ class UnitKerjaController extends Controller
     public function index()
     {
 
-        return ResponseHelper::success($this->unit_kerja->get());
+        return ResponseHelper::success($this->jabatan->get());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UnitKerjaRequest $request)
+    public function store(JabatanRequest $request)
     {
         try {
-            $unit_kerja = $this->unit_kerja->store($request->validated());
-            return ResponseHelper::success($this->unit_kerja->show($unit_kerja->id), 'Store data successfully', 201);
+            $jabatan = $this->jabatan->store($request->validated());
+            return ResponseHelper::success($this->jabatan->show($jabatan->id), 'Store data successfully', 201);
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());
         }
@@ -45,7 +45,7 @@ class UnitKerjaController extends Controller
     public function show(string $id)
     {
         try {
-            return ResponseHelper::success($this->unit_kerja->show($id));
+            return ResponseHelper::success($this->jabatan->show($id));
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());
         }
@@ -54,10 +54,10 @@ class UnitKerjaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UnitKerjaRequest $request, string $id)
+    public function update(JabatanRequest $request, string $id)
     {
         try {
-            $this->unit_kerja->update($id, $request->validated());
+            $this->jabatan->update($id, $request->validated());
             return ResponseHelper::success(data: $request->validated(), message: "Update data successfully");
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());
@@ -70,7 +70,7 @@ class UnitKerjaController extends Controller
     public function destroy(string $id)
     {
         try {
-            $this->unit_kerja->delete($id);
+            $this->jabatan->delete($id);
             return ResponseHelper::success(message: "Delete data successfully");
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());

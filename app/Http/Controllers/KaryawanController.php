@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Repository\Interfaces\KaryawanInterface;
+use App\Contracts\Interfaces\KaryawanInterface;
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\KaryawanRequest;
-use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {

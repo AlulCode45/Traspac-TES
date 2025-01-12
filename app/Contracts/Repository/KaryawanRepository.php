@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Contracts\Repository\Repository;
+namespace App\Contracts\Repository;
 
-use App\Contracts\Repository\Interfaces\UnitKerjaInterface;
-use App\Models\UnitKerja;
-use Illuminate\Database\QueryException;
 
-class UnitKerjaRepository extends BaseRepository implements UnitKerjaInterface
+use App\Contracts\Interfaces\KaryawanInterface;
+use App\Models\Karyawan;
+
+class KaryawanRepository extends BaseRepository implements KaryawanInterface
 {
-    public function __construct(UnitKerja $model)
+    public function __construct(Karyawan $model)
     {
         $this->model = $model;
     }
@@ -16,14 +16,14 @@ class UnitKerjaRepository extends BaseRepository implements UnitKerjaInterface
     public function get(): mixed
     {
         return $this->model->query()
-            ->with('karyawan')
+            ->with(['jabatan', 'unit_kerja'])
             ->get();
     }
 
     public function show(mixed $id): mixed
     {
         return $this->model->query()
-            ->with('karyawan')
+            ->with(['jabatan', 'unit_kerja'])
             ->findOrFail($id);
     }
 
@@ -41,6 +41,7 @@ class UnitKerjaRepository extends BaseRepository implements UnitKerjaInterface
 
     public function delete(mixed $id): bool
     {
-        return $this->show($id)->delete($id);
+        return $this->show($id)
+            ->delete();
     }
 }
