@@ -3,11 +3,11 @@
 namespace App\Contracts\Repository;
 
 use App\Contracts\Interfaces\JabatanInterface;
-use App\Models\UnitKerja;
+use App\Models\Jabatan;
 
 class JabatanRepository extends BaseRepository implements JabatanInterface
 {
-    public function __construct(UnitKerja $model)
+    public function __construct(Jabatan $model)
     {
         $this->model = $model;
     }
