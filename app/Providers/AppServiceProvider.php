@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-use App\Contracts\Repository\Interfaces\KaryawanInterface;
-use App\Contracts\Repository\Interfaces\UnitKerjaInterface;
-use App\Contracts\Repository\Repository\KaryawanRepository;
-use App\Contracts\Repository\Repository\UnitKerjaRepository;
+use App\Contracts\Interfaces\JabatanInterface;
+use App\Contracts\Interfaces\KaryawanInterface;
+use App\Contracts\Interfaces\UnitKerjaInterface;
+use App\Contracts\Repository\JabatanRepository;
+use App\Contracts\Repository\KaryawanRepository;
+use App\Contracts\Repository\UnitKerjaRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     private array $registers = [
         KaryawanInterface::class => KaryawanRepository::class,
         UnitKerjaInterface::class => UnitKerjaRepository::class,
+        JabatanInterface::class => JabatanRepository::class
     ];
 
     /**
