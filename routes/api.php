@@ -14,3 +14,4 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::apiResource('/karyawan', KaryawanController::class)->middleware('auth:sanctum');
+Route::apiResource('/unit-kerja', \App\Http\Controllers\UnitKerjaController::class)->middleware('auth:sanctum');
