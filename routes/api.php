@@ -13,5 +13,8 @@ Route::prefix('auth')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'handle'])->middleware('auth:sanctum');
 });
 
-Route::apiResource('/karyawan', KaryawanController::class)->middleware('auth:sanctum');
-Route::apiResource('/unit-kerja', \App\Http\Controllers\UnitKerjaController::class)->middleware('auth:sanctum');
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::apiResource('/karyawan', KaryawanController::class);
+    Route::apiResource('/unit-kerja', \App\Http\Controllers\UnitKerjaController::class);
+    Route::apiResource('/jabatan', \App\Http\Controllers\JabatanController::class);
+});
