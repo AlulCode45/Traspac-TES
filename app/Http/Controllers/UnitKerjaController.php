@@ -57,8 +57,8 @@ class UnitKerjaController extends Controller
     public function update(UnitKerjaRequest $request, string $id)
     {
         try {
-            $this->unit_kerja->update($id, $request->validated());
-            return ResponseHelper::success(data: $request->validated(), message: "Update data successfully");
+            $updaeted = $this->unit_kerja->update($id, $request->validated());
+            return ResponseHelper::success(data: $this->unit_kerja->show($id), message: "Update data successfully");
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());
         }
