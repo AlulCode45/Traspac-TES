@@ -17,4 +17,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('/karyawan', KaryawanController::class);
     Route::apiResource('/unit-kerja', \App\Http\Controllers\UnitKerjaController::class);
     Route::apiResource('/jabatan', \App\Http\Controllers\JabatanController::class);
+
+    Route::get('/count-all', [\App\Http\Controllers\CountController::class,'count']);
 });
