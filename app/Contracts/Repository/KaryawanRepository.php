@@ -44,4 +44,11 @@ class KaryawanRepository extends BaseRepository implements KaryawanInterface
         return $this->show($id)
             ->delete();
     }
+
+    public function count()
+    {
+        return $this->model
+            ->query()
+            ->count();
+    }
 }

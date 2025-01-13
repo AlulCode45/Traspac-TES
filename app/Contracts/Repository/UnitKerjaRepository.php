@@ -41,4 +41,10 @@ class UnitKerjaRepository extends BaseRepository implements UnitKerjaInterface
     {
         return $this->show($id)->delete($id);
     }
+    public function count()
+    {
+        return $this->model
+            ->query()
+            ->count();
+    }
 }

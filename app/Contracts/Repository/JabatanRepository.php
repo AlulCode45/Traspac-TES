@@ -41,4 +41,10 @@ class JabatanRepository extends BaseRepository implements JabatanInterface
     {
         return $this->show($id)->delete($id);
     }
+    public function count()
+    {
+        return $this->model
+            ->query()
+            ->count();
+    }
 }
