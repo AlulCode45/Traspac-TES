@@ -26,7 +26,7 @@ class KaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nip' => 'sometimes|required|numeric|unique:karyawans,nip',
+            'nip' => 'sometimes|required|numeric|unique:karyawans,nip,'.$this->id,
             'nama' => 'sometimes|required|string|max:255',
             'tempat_lahir' => 'nullable|string|max:255',
             'tanggal_lahir' => 'sometimes|required|date',
