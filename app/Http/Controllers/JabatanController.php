@@ -58,7 +58,7 @@ class JabatanController extends Controller
     {
         try {
             $this->jabatan->update($id, $request->validated());
-            return ResponseHelper::success(data: $request->validated(), message: "Update data successfully");
+            return ResponseHelper::success(data: $this->jabatan->show($id), message: "Update data successfully");
         } catch (\Exception $exception) {
             return ResponseHelper::error(message: $exception->getMessage());
         }
