@@ -21,7 +21,7 @@ class UnitKerjaRepository extends BaseRepository implements UnitKerjaInterface
     public function show(mixed $id): mixed
     {
         return $this->model->query()
-            ->with('karyawan')
+//            ->with('karyawan')
             ->findOrFail($id);
     }
 
