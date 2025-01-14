@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('nip')->unique();
+            $table->string('photo_profile')->default('default.jpg');
             $table->string('nama');
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir');
