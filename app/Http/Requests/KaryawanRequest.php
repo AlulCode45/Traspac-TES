@@ -26,6 +26,7 @@ class KaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'photo_profile' => 'sometimes|nullable|mimes:jpeg,png,jpg|max:2048',
             'nip' => 'sometimes|required|numeric|unique:karyawans,nip,'.$this->id,
             'nama' => 'sometimes|required|string|max:255',
             'tempat_lahir' => 'nullable|string|max:255',
